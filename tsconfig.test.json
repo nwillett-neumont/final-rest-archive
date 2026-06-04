@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    // ts-jest transpiles file-by-file, so isolatedModules is required for the
+    // NodeNext module setting (also silences the ts-jest TS151002 warning).
+    "isolatedModules": true,
+    // Tests live outside ./src and pull in the Jest globals, so relax the
+    // production build's rootDir and add the test-runner type definitions.
+    "rootDir": ".",
+    "types": ["jest", "node"],
+    "noEmit": true
+  },
+  "include": ["src/**/*.ts", "tests/**/*.ts"],
+  "exclude": ["node_modules", "dist"]
+}
